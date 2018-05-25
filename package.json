@@ -1,0 +1,33 @@
+{
+  "name": "hrr31-mvp",
+  "version": "1.0.0",
+  "description": "Read and Search Water Heater Temperatures over Time",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon --inspect index.js",
+    "react-dev": "babel -w 'client/src' -d 'client/dist' --presets env,react"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnWebb4/hrr31-mvp.git"
+  },
+  "keywords": [
+    "Water",
+    "Heater",
+    "Solar"
+  ],
+  "author": "John Webb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JohnWebb4/hrr31-mvp/issues"
+  },
+  "homepage": "https://github.com/JohnWebb4/hrr31-mvp#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-env": "^1.7.0"
+  }
+}
