@@ -4,6 +4,7 @@
   "description": "Read and Search Water Heater Temperatures over Time",
   "main": "index.js",
   "scripts": {
+    "postinstall": "cd client && bower cache clean && bower install && cd ..",
     "test": "nodemon --inspect index.js",
     "react-dev": "babel -w 'client/src' -d 'client/dist' --presets env,react"
   },
