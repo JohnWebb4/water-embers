@@ -1,3 +1,7 @@
-const TemperaturesList = () => (
-  <h1>Temperatures List</h1>
+const TemperaturesList = ({temperatures}) => (
+  {
+    temperatures.map((temperature, index) {
+      return <Temperature key={index} temperature={temperature} />;
+    })
+  }
 );
