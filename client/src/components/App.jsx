@@ -26,6 +26,11 @@ class App extends React.Component {
   }
 
   render() {
-    return <TemperaturesList temperatures={this.state.temperatures}/>;
+    return (
+      <React.Fragment>
+        <Search />
+        <TemperaturesList temperatures={this.state.temperatures}/>
+      </React.Fragment>
+    );
   }
 }
