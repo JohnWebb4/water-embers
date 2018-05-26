@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = Promise;
 
-mongoose.connect(process.env.DATABASE, {uri_decode_auth: true});
+mongoose.connect(process.env.DATABASE);
 
 const temperature = new mongoose.Schema({
   date: {
@@ -13,6 +13,6 @@ const temperature = new mongoose.Schema({
   temperature: Number
 });
 
-const Temperature = new mongoose.model('Temperature', temperature);
+const Temperature = mongoose.model('Temperature', temperature);
 
 module.exports.create = Temperature.create.bind(Temperature);
