@@ -5,16 +5,8 @@ class App extends React.Component {
     this.state = {
       temperatures: []
     }
-  }
 
-  fetchCurrentTemperature() {
-    fetch('/temperature')
-      .then(res => res.json())
-      .then((temperatures) => {
-        this.setState({
-          temperatures: temperatures
-        });
-      });
+    this.search = this.search.bind(this);
   }
 
   componentDidMount() {
@@ -28,9 +20,29 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Search />
+        <Search onSearch={this.search}/>
         <TemperaturesList temperatures={this.state.temperatures}/>
       </React.Fragment>
     );
+  }
+
+  fetchCurrentTemperature() {
+    fetch('/temperature')
+      .then(res => res.json())
+      .then((temperatures) => {
+        this.setState({
+          temperatures: temperatures
+        });
+      });
+  }
+
+  search(value) {
+    fetch(`/temperature?search=${value.search}&numResults=${value.numResults}`)
+      .then(res => res.json())
+      .then((temperatures) => {
+        this.setState({
+          temperatures: temperatures
+        });
+      });
   }
 }
