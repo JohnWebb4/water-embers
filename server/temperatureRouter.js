@@ -1,10 +1,14 @@
+const database = require('../database/database.js');
+
 var router = require('express').Router();
 
 router.get('/', (req, res) => {
-  res.send([{
-    date: Date.now(),
-    temperature: Math.random() * 20 + 70
-  }]);
+  var numResults = req.query.numResults || 1;
+
+  database.getNewestTemperatures(numResults)
+    .then((temperatures) => {
+      res.send(temperatures);
+    });
 });
 
 module.exports = router;
