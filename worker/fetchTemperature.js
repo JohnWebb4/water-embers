@@ -1,7 +1,7 @@
-const dataTemperature = require('../database/temperatureHelper.js');
+const database = require('../database/database.js');
 
 module.exports = () => {
-  dataTemperature.create({
+  database.create({
     date: new Date(),
     temperature: Math.random() * 10 + 90
   }, (err, temperature) => {
