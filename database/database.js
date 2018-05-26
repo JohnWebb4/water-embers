@@ -15,7 +15,7 @@ const temperature = new mongoose.Schema({
 
 const Temperature = mongoose.model('Temperature', temperature);
 
-const getNewestTemperatures = async (numResults) => await Temperature.find().limit(numResults).sort({date: -1});
+const search = async (search, numResults) => await Temperature.find(search).limit(numResults).sort({date: -1});
 
 module.exports.create = Temperature.create.bind(Temperature);
-module.exports.getNewestTemperatures = getNewestTemperatures;
+module.exports.search = search;
