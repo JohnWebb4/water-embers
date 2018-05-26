@@ -3,6 +3,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      currentTemperature: {},
       temperatures: []
     }
 
@@ -20,7 +21,10 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <h1>Current Temperature</h1>
+        <Temperature temperature={this.state.currentTemperature}/>
         <Search onSearch={this.search}/>
+        <h3>Search Results</h3>
         <TemperaturesList temperatures={this.state.temperatures}/>
       </React.Fragment>
     );
@@ -31,7 +35,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then((temperatures) => {
         this.setState({
-          temperatures: temperatures
+          currentTemperature: temperatures[0]
         });
       });
   }

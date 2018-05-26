@@ -15,7 +15,7 @@ class Search extends React.Component {
   render() {
   return (
     <React.Fragment>
-      <h3>Search</h3>
+      <h2>Search</h2>
       <form name="Search" onSubmit={this.search}>
         <select name="search-criteria" defaultValue="Newest" onChange={this.selectChange}>
           <option value="Newest">Newest</option>
