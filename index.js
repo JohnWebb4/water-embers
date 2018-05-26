@@ -16,7 +16,7 @@ app.use('/temperature', temperatureRouter);
 
 // Create worker to update temperature
 new CronJob(`*/${app.get('fetch_interval')} * * * * *`, () => {
-  console.log(fetchTemperatureWorker());
+  fetchTemperatureWorker();
 }, null, true, 'America/Phoenix');
 
 app.listen(app.get('port'), () => {
