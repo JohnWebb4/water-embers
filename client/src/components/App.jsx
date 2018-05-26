@@ -3,10 +3,18 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      temperatures: [
-        1, 2, 3, 4, 5
-      ]
+      temperatures: []
     }
+  }
+
+  componentDidMount() {
+    fetch('/temperature')
+      .then(res => res.json())
+      .then((temperatures) => {
+        this.setState({
+          temperatures: temperatures
+        });
+      });
   }
 
   render() {

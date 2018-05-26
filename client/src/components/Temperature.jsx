@@ -1,3 +1,3 @@
 const Temperature = ({temperature}) => (
-  <p>This is the temperature:{temperature}</p>
+  <p>The temperature was {temperature.temperature} at {Date(temperature.date)}</p>
 );
