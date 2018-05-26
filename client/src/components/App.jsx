@@ -7,7 +7,7 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
+  fetchCurrentTemperature() {
     fetch('/temperature')
       .then(res => res.json())
       .then((temperatures) => {
@@ -15,6 +15,14 @@ class App extends React.Component {
           temperatures: temperatures
         });
       });
+  }
+
+  componentDidMount() {
+    this.fetchCurrentTemperature();
+
+    setInterval(() => {
+      this.fetchCurrentTemperature();
+      }, 10000);
   }
 
   render() {
