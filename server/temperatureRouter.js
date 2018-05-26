@@ -4,7 +4,7 @@ var router = require('express').Router();
 
 router.get('/', (req, res) => {
   var searchCriteria = parseSearch(req.query.search || '');
-  var numResults = req.query.numResults || 1;
+  var numResults = Number(req.query.numResults) || 1;
 
   database.search(searchCriteria, numResults)
     .then((temperatures) => {
