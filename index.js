@@ -1,12 +1,16 @@
 const express = require('express');
+const CronJob = require('cron').CronJob;
+const bodyParser = require('body-parser');
+
 const temperatureRouter = require('./server/temperatureRouter.js');
 const fetchTemperatureWorker = require('./worker/fetchTemperature.js');
-const CronJob = require('cron').CronJob;
 
 var app = express();
 
 app.set('port', process.env.PORT || 8000);
 app.set('fetch_interval', process.env.FETCH_INTERVAL || 10);
+
+app.use(bodyParser.json());
 
 app.use(express.static('client/dist/'));
 
