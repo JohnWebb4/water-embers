@@ -24,6 +24,7 @@ class App extends React.Component {
         <h1>Current Temperature</h1>
         <Temperature temperature={this.state.currentTemperature}/>
         <Search onSearch={this.search}/>
+        <canvas id="resultPlot"></canvas>
         <h3>Search Results</h3>
         <TemperaturesList temperatures={this.state.temperatures}/>
       </React.Fragment>
